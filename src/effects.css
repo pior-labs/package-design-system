@@ -1,0 +1,8 @@
+/*
+ * Optional theme effect helpers.
+ *
+ * Import this only in apps that want shared material, motion, and atmospheric
+ * classes like theme-glass, theme-mesh, theme-bar-fill, and theme-action-bg.
+ */
+
+@import "./helpers.css";

@@ -1,0 +1,66 @@
+:root,
+[data-theme="bloom"] {
+  /* Bloom palette - default warm light */
+  --cream: #fdf9f0;
+  --accent-1: #cae0a8;
+  --accent-2: #f8d7c0;
+  --accent-3: #dcd3f0;
+  --ink: #2d2418;
+  --ink-2: #574532;
+  --ink-3: #9c8a73;
+  --accent: #c5704a;
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --pistachio: var(--accent-1);
+  --peach: var(--accent-2);
+  --lavender: var(--accent-3);
+
+  /* Themeable surfaces - referenced by components as rgba(var(--...), alpha) */
+  --surface-rgb: 255, 253, 247;
+  --frost-rgb: 255, 255, 255;
+  --frost: #ffffff;
+
+  /* Animated mesh blobs + atmosphere */
+  --blob-1: var(--accent-1);
+  --blob-2: var(--accent-2);
+  --blob-3: var(--accent-3);
+  --blob-4: #f5e3a0;
+  --blob-5: #c6e3d4;
+  --blob-blend: multiply;
+  --blob-opacity: 0.8;
+  --grain-opacity: 0.45;
+
+  /* Glass helper surface */
+  --glass-bg: rgba(var(--surface-rgb), 0.55);
+  --glass-border: rgba(var(--frost-rgb), 0.8);
+  --glass-shadow: 0 14px 44px -10px rgba(45, 36, 24, 0.1),
+    inset 0 0 0 1px rgba(var(--frost-rgb), 0.45);
+
+  /* shadcn/Tailwind semantic contract */
+  --background: #f0eee9;
+  --foreground: #2a251f;
+  --card: #fdfbf6;
+  --card-foreground: #2a251f;
+  --muted: #f6f2ea;
+  --muted-foreground: #8a8078;
+  --border: #2a251f;
+  --border-soft: rgba(42, 37, 31, 0.35);
+  --primary: #c96442;
+  --primary-foreground: #fdfbf6;
+  --primary-soft: #f3d9cf;
+  --accent-foreground: #2a251f;
+  --accent-soft: #f3e3cf;
+  --destructive: #c96442;
+  --good: #5b8a5a;
+  --good-soft: #dceadc;
+  --warn: #c98e42;
+  --warn-soft: #f3e3cf;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sketch: 2px 3px 0 0 var(--border);
+  --shadow-sketch-sm: 1.5px 2px 0 0 var(--border);
+
+  --font-body: "Kalam", "Comic Sans MS", cursive;
+  --font-heading: "Caveat", cursive;
+}

@@ -1,0 +1,192 @@
+/* styles.css */
+/*
+ * ============================================================================
+ *  PIOR THEME SYSTEM
+ *  Import this after Tailwind v4 in an app stylesheet:
+ *
+ *    @import "tailwindcss";
+ *    @import "@pior-labs/design-system/styles.css";
+ *
+ *  Themes are activated by setting <html data-theme="...">. Components should
+ *  prefer semantic tokens like bg-card, text-foreground, border-border, and
+ *  bg-primary. Import effects.css for optional material, motion, and atmospheric helpers.
+ * ============================================================================
+ */
+
+/* themes/bloom.css */
+:root,
+[data-theme="bloom"] {
+  /* Bloom palette - default warm light */
+  --cream: #fdf9f0;
+  --accent-1: #cae0a8;
+  --accent-2: #f8d7c0;
+  --accent-3: #dcd3f0;
+  --ink: #2d2418;
+  --ink-2: #574532;
+  --ink-3: #9c8a73;
+  --accent: #c5704a;
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --pistachio: var(--accent-1);
+  --peach: var(--accent-2);
+  --lavender: var(--accent-3);
+
+  /* Themeable surfaces - referenced by components as rgba(var(--...), alpha) */
+  --surface-rgb: 255, 253, 247;
+  --frost-rgb: 255, 255, 255;
+  --frost: #ffffff;
+
+  /* Animated mesh blobs + atmosphere */
+  --blob-1: var(--accent-1);
+  --blob-2: var(--accent-2);
+  --blob-3: var(--accent-3);
+  --blob-4: #f5e3a0;
+  --blob-5: #c6e3d4;
+  --blob-blend: multiply;
+  --blob-opacity: 0.8;
+  --grain-opacity: 0.45;
+
+  /* Glass helper surface */
+  --glass-bg: rgba(var(--surface-rgb), 0.55);
+  --glass-border: rgba(var(--frost-rgb), 0.8);
+  --glass-shadow: 0 14px 44px -10px rgba(45, 36, 24, 0.1),
+    inset 0 0 0 1px rgba(var(--frost-rgb), 0.45);
+
+  /* shadcn/Tailwind semantic contract */
+  --background: #f0eee9;
+  --foreground: #2a251f;
+  --card: #fdfbf6;
+  --card-foreground: #2a251f;
+  --muted: #f6f2ea;
+  --muted-foreground: #8a8078;
+  --border: #2a251f;
+  --border-soft: rgba(42, 37, 31, 0.35);
+  --primary: #c96442;
+  --primary-foreground: #fdfbf6;
+  --primary-soft: #f3d9cf;
+  --accent-foreground: #2a251f;
+  --accent-soft: #f3e3cf;
+  --destructive: #c96442;
+  --good: #5b8a5a;
+  --good-soft: #dceadc;
+  --warn: #c98e42;
+  --warn-soft: #f3e3cf;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sketch: 2px 3px 0 0 var(--border);
+  --shadow-sketch-sm: 1.5px 2px 0 0 var(--border);
+
+  --font-body: "Kalam", "Comic Sans MS", cursive;
+  --font-heading: "Caveat", cursive;
+}
+
+/* tailwind-contract.css */
+@theme inline {
+  /* Bloom flavor palette */
+  --color-cream: var(--cream);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --color-pistachio: var(--pistachio);
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-frost: var(--frost);
+
+  /* shadcn/Tailwind semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+
+  --radius-sketch: var(--radius);
+  --radius-sketch-sm: var(--radius-sm);
+  --shadow-sketch: 2px 3px 0 0 var(--border);
+  --shadow-sketch-sm: 1.5px 2px 0 0 var(--border);
+  --shadow-sketch-xs: 1px 1.5px 0 0 var(--border);
+
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  --animate-theme-drift: theme-drift 22s ease-in-out infinite alternate;
+  --animate-theme-pulse: theme-pulse 1.4s ease-in-out infinite;
+  --animate-theme-scrim-in: theme-scrim-in 0.18s ease-out;
+  --animate-theme-toast-in: theme-toast-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-theme-overlay-in: theme-overlay-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-theme-overlay-item-in: theme-overlay-item-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* themes/slate.css */
+[data-theme="slate"] {
+  --cream: #eef1f6;
+  --ink: #1e2733;
+  --ink-2: #4a5566;
+  --ink-3: #8794a6;
+  --accent: #3b6ea5;
+  --accent-1: #b6cfd6;
+  --accent-2: #d8dee9;
+  --accent-3: #ccd3e3;
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --pistachio: var(--accent-1);
+  --peach: var(--accent-2);
+  --lavender: var(--accent-3);
+
+  --surface-rgb: 255, 255, 255;
+  --frost-rgb: 255, 255, 255;
+  --frost: #ffffff;
+
+  --blob-1: var(--accent-1);
+  --blob-2: var(--accent-2);
+  --blob-3: var(--accent-3);
+  --blob-4: #e6ebf2;
+  --blob-5: #cfe0e4;
+  --blob-blend: multiply;
+  --blob-opacity: 0.7;
+  --grain-opacity: 0.18;
+
+  --glass-bg: rgba(var(--surface-rgb), 0.6);
+  --glass-border: rgba(var(--frost-rgb), 0.8);
+  --glass-shadow: 0 14px 44px -12px rgba(30, 39, 51, 0.14),
+    inset 0 0 0 1px rgba(var(--frost-rgb), 0.5);
+
+  --background: #eef1f6;
+  --foreground: #1e2733;
+  --card: #ffffff;
+  --card-foreground: #1e2733;
+  --muted: #e4e8f0;
+  --muted-foreground: #6b7689;
+  --border: #c2cad8;
+  --border-soft: rgba(30, 39, 51, 0.2);
+
+  --primary: #3b6ea5;
+  --primary-foreground: #ffffff;
+  --primary-soft: #cdd9e6;
+  --accent-foreground: #1e2733;
+  --accent-soft: #d2dae8;
+  --destructive: #b0544e;
+  --good: #4a8370;
+  --good-soft: #d2e2dc;
+  --warn: #b08a3f;
+  --warn-soft: #e6ddc8;
+}

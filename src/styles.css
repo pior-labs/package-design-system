@@ -1,0 +1,17 @@
+/*
+ * ============================================================================
+ *  PIOR THEME SYSTEM
+ *  Import this after Tailwind v4 in an app stylesheet:
+ *
+ *    @import "tailwindcss";
+ *    @import "@pior-labs/design-system/styles.css";
+ *
+ *  Themes are activated by setting <html data-theme="...">. Components should
+ *  prefer semantic tokens like bg-card, text-foreground, border-border, and
+ *  bg-primary. Import effects.css for optional material, motion, and atmospheric helpers.
+ * ============================================================================
+ */
+
+@import "./themes/bloom.css";
+@import "./tailwind-contract.css";
+@import "./themes/slate.css";

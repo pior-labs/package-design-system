@@ -1,0 +1,53 @@
+[data-theme="slate"] {
+  --cream: #eef1f6;
+  --ink: #1e2733;
+  --ink-2: #4a5566;
+  --ink-3: #8794a6;
+  --accent: #3b6ea5;
+  --accent-1: #b6cfd6;
+  --accent-2: #d8dee9;
+  --accent-3: #ccd3e3;
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --pistachio: var(--accent-1);
+  --peach: var(--accent-2);
+  --lavender: var(--accent-3);
+
+  --surface-rgb: 255, 255, 255;
+  --frost-rgb: 255, 255, 255;
+  --frost: #ffffff;
+
+  --blob-1: var(--accent-1);
+  --blob-2: var(--accent-2);
+  --blob-3: var(--accent-3);
+  --blob-4: #e6ebf2;
+  --blob-5: #cfe0e4;
+  --blob-blend: multiply;
+  --blob-opacity: 0.7;
+  --grain-opacity: 0.18;
+
+  --glass-bg: rgba(var(--surface-rgb), 0.6);
+  --glass-border: rgba(var(--frost-rgb), 0.8);
+  --glass-shadow: 0 14px 44px -12px rgba(30, 39, 51, 0.14),
+    inset 0 0 0 1px rgba(var(--frost-rgb), 0.5);
+
+  --background: #eef1f6;
+  --foreground: #1e2733;
+  --card: #ffffff;
+  --card-foreground: #1e2733;
+  --muted: #e4e8f0;
+  --muted-foreground: #6b7689;
+  --border: #c2cad8;
+  --border-soft: rgba(30, 39, 51, 0.2);
+
+  --primary: #3b6ea5;
+  --primary-foreground: #ffffff;
+  --primary-soft: #cdd9e6;
+  --accent-foreground: #1e2733;
+  --accent-soft: #d2dae8;
+  --destructive: #b0544e;
+  --good: #4a8370;
+  --good-soft: #d2e2dc;
+  --warn: #b08a3f;
+  --warn-soft: #e6ddc8;
+}

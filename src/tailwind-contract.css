@@ -1,0 +1,53 @@
+@theme inline {
+  /* Bloom flavor palette */
+  --color-cream: var(--cream);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+
+  /* Backward-compatible palette aliases. Prefer accent-1/2/3 in new code. */
+  --color-pistachio: var(--pistachio);
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-frost: var(--frost);
+
+  /* shadcn/Tailwind semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+
+  --radius-sketch: var(--radius);
+  --radius-sketch-sm: var(--radius-sm);
+  --shadow-sketch: 2px 3px 0 0 var(--border);
+  --shadow-sketch-sm: 1.5px 2px 0 0 var(--border);
+  --shadow-sketch-xs: 1px 1.5px 0 0 var(--border);
+
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  --animate-theme-drift: theme-drift 22s ease-in-out infinite alternate;
+  --animate-theme-pulse: theme-pulse 1.4s ease-in-out infinite;
+  --animate-theme-scrim-in: theme-scrim-in 0.18s ease-out;
+  --animate-theme-toast-in: theme-toast-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-theme-overlay-in: theme-overlay-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-theme-overlay-item-in: theme-overlay-item-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
