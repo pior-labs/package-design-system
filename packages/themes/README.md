@@ -1,6 +1,22 @@
-# Custom Tailwind Shadcn Themes
+# Pior Labs Design System
 
-Shared Tailwind v4 and shadcn-compatible theme tokens for Pior apps.
+Shared Tailwind v4 and shadcn-compatible design system tokens for Pior Labs apps.
+
+## Installation
+
+Configure the GitHub Packages npm registry for the `@pior-labs` scope in your
+consumer app:
+
+```ini
+@pior-labs:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Install the package:
+
+```sh
+pnpm add @pior-labs/design-system@^1.0.0
+```
 
 ## Usage
 
@@ -8,20 +24,20 @@ Import the theme CSS after Tailwind in your app stylesheet:
 
 ```css
 @import "tailwindcss";
-@import "@ipior/custom-tailwind-shadcn-themes/styles.css";
+@import "@pior-labs/design-system/styles.css";
 ```
 
 Import the optional effect helpers only in apps that want shared glass, mesh,
 grain, motion, and accent-surface utility classes:
 
 ```css
-@import "@ipior/custom-tailwind-shadcn-themes/effects.css";
+@import "@pior-labs/design-system/effects.css";
 ```
 
 Wrap your React app with the provider:
 
 ```tsx
-import { ThemeProvider } from '@ipior/custom-tailwind-shadcn-themes';
+import { ThemeProvider } from '@pior-labs/design-system';
 
 export function App() {
   return (
@@ -35,7 +51,7 @@ export function App() {
 Use the theme hook when you need to render a theme picker:
 
 ```tsx
-import { useTheme } from '@ipior/custom-tailwind-shadcn-themes';
+import { useTheme } from '@pior-labs/design-system';
 
 export function ThemePicker() {
   const { theme, setTheme, themes } = useTheme();

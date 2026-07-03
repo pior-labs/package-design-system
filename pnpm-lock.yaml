@@ -10,7 +10,7 @@ importers:
 
   apps/theme-lab:
     dependencies:
-      '@ipior/custom-tailwind-shadcn-themes':
+      '@pior-labs/design-system':
         specifier: workspace:*
         version: link:../../packages/themes
       lucide-react:

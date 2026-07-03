@@ -1,16 +1,16 @@
 {
-  "name": "@ipior/theme-lab",
+  "name": "@pior-labs/theme-lab",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @ipior/custom-tailwind-shadcn-themes build && pnpm generate:tokens && vite --host 0.0.0.0",
+    "dev": "pnpm --filter @pior-labs/design-system build && pnpm generate:tokens && vite --host 0.0.0.0",
     "build": "pnpm generate:tokens && tsc -b && vite build",
     "typecheck": "pnpm generate:tokens && tsc --noEmit",
     "generate:tokens": "node scripts/generate-token-manifest.mjs"
   },
   "dependencies": {
-    "@ipior/custom-tailwind-shadcn-themes": "workspace:*",
+    "@pior-labs/design-system": "workspace:*",
     "lucide-react": "^1.16.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

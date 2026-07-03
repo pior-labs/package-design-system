@@ -1,0 +1,45 @@
+name: Publish package
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: publish-package-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.8.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: '@pior-labs'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Typecheck themes package
+        run: pnpm --filter @pior-labs/design-system typecheck
+
+      - name: Build themes package
+        run: pnpm --filter @pior-labs/design-system build
+
+      - name: Publish to GitHub Packages
+        run: pnpm --filter @pior-labs/design-system publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

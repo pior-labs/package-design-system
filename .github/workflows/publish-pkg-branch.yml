@@ -1,7 +1,7 @@
 name: Publish pkg branch
 
 # Mirrors packages/themes (with a freshly built dist) to the `pkg` branch so
-# consumer repos can install it via `github:iPior/custom-tailwind-shadcn-themes#pkg`.
+# consumer repos can install it via `github:pior-labs/package-design-system#pkg`.
 # pnpm/npm git deps can't target a subdirectory, hence this published-subtree branch.
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build themes package
-        run: pnpm --filter @ipior/custom-tailwind-shadcn-themes build
+        run: pnpm --filter @pior-labs/design-system build
 
       - name: Publish packages/themes to pkg branch
         run: |

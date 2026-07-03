@@ -1,13 +1,13 @@
 {
-  "name": "@ipior/custom-tailwind-shadcn-themes",
-  "version": "0.1.0",
-  "description": "Shared Tailwind v4 and shadcn-compatible theme tokens for Pior apps.",
+  "name": "@pior-labs/design-system",
+  "version": "1.0.0",
+  "description": "Shared Tailwind v4 and shadcn-compatible design system tokens for Pior Labs apps.",
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iPior/custom-tailwind-shadcn-themes.git"
+    "url": "git+https://github.com/pior-labs/package-design-system.git"
   },
   "files": [
     "dist",
@@ -31,5 +31,8 @@
   "devDependencies": {
     "@types/react": "^19.0.8",
     "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
