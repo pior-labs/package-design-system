@@ -1,6 +1,6 @@
 {
   "name": "@pior-labs/design-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared Tailwind v4 and shadcn-compatible design system tokens for Pior Labs apps.",
   "type": "module",
   "packageManager": "pnpm@10.8.1",
