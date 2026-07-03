@@ -4,7 +4,7 @@
  *  Import this after Tailwind v4 in an app stylesheet:
  *
  *    @import "tailwindcss";
- *    @import "@ipior/custom-tailwind-shadcn-themes/styles.css";
+ *    @import "@pior-labs/design-system/styles.css";
  *
  *  Themes are activated by setting <html data-theme="...">. Components should
  *  prefer semantic tokens like bg-card, text-foreground, border-border, and

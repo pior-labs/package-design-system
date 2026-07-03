@@ -1,13 +1,13 @@
 {
-  "name": "custom-tailwind-shadcn-themes-workspace",
-  "version": "0.1.0",
+  "name": "design-system-workspace",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "scripts": {
-    "build": "pnpm --filter @ipior/custom-tailwind-shadcn-themes build && pnpm --filter @ipior/theme-lab build",
-    "typecheck": "pnpm --filter @ipior/custom-tailwind-shadcn-themes typecheck && pnpm --filter @ipior/theme-lab typecheck",
-    "generate:tokens": "pnpm --filter @ipior/theme-lab generate:tokens",
-    "dev:theme-lab": "pnpm --filter @ipior/theme-lab dev"
+    "build": "pnpm --filter @pior-labs/design-system build && pnpm --filter @pior-labs/theme-lab build",
+    "typecheck": "pnpm --filter @pior-labs/design-system typecheck && pnpm --filter @pior-labs/theme-lab typecheck",
+    "generate:tokens": "pnpm --filter @pior-labs/theme-lab generate:tokens",
+    "dev:theme-lab": "pnpm --filter @pior-labs/theme-lab dev"
   }
 }

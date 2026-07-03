@@ -1,6 +1,6 @@
-# Custom Tailwind Shadcn Themes
+# Pior Labs Design System
 
-Shared Tailwind v4 and shadcn-compatible theme tokens for my apps.
+Shared Tailwind v4 and shadcn-compatible design system tokens for Pior Labs apps.
 
 ## Repo layout
 
@@ -13,33 +13,46 @@ apps/
 
 Only `packages/themes` is intended to be consumed by other apps. The theme lab is a private workspace app, so its future dependencies do not bloat consuming applications.
 
-## Install from GitHub
+## Install from GitHub Packages
 
-The package lives in `packages/themes`, but pnpm/npm git dependencies cannot
-target a subdirectory of a repo. To work around that, CI mirrors the built
-package to the **`pkg` branch** (where `package.json` sits at the root), and
-consumers install from there:
+Configure the GitHub Packages npm registry for the `@pior-labs` scope in the
+consumer app:
+
+```ini
+@pior-labs:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Install the package from GitHub Packages:
 
 ```sh
-pnpm add github:iPior/custom-tailwind-shadcn-themes#pkg
+pnpm add @pior-labs/design-system@^1.0.0
 ```
 
-In `package.json` this resolves to:
+In `package.json` this resolves to a normal version range:
 
 ```jsonc
-"@ipior/custom-tailwind-shadcn-themes": "github:iPior/custom-tailwind-shadcn-themes#pkg"
+"@pior-labs/design-system": "^1.0.0"
 ```
 
-The `pkg` branch is regenerated automatically by
-[`.github/workflows/publish-pkg-branch.yml`](.github/workflows/publish-pkg-branch.yml)
-on every push to `main` that touches `packages/themes`. Because lockfiles pin
-the resolved commit, run `pnpm update @ipior/custom-tailwind-shadcn-themes` in a
-consumer to pull the latest.
+The package publishes from `packages/themes` via
+[`.github/workflows/publish-package.yml`](.github/workflows/publish-package.yml)
+when a `v*` tag is pushed or when the workflow is run manually. The package is
+published to GitHub Packages with the `@pior-labs/design-system` name.
 
-> **Heads up:** Do **not** use `#main` or a `#path:` fragment — `#main` resolves
-> to the workspace root (which has no package entry) and the `#path:` syntax is
-> not supported by pnpm. Once this package is published to npm, switch consumers
-> to a version range (`"^0.1.0"`) and the `pkg` branch can be retired.
+### Temporary pkg branch fallback
+
+The legacy `pkg` branch workflow remains in place while consumer apps are
+verified. Consumers that still need the branch fallback can install it with:
+
+```sh
+pnpm add github:pior-labs/package-design-system#pkg
+```
+
+Because lockfiles pin the resolved commit, run
+`pnpm update @pior-labs/design-system` in a consumer to pull the latest branch
+fallback build. Do not use `#main` or a `#path:` fragment — `#main` resolves to
+the workspace root and the `#path:` syntax is not supported by pnpm.
 
 ## Usage
 
@@ -47,19 +60,19 @@ Import the theme CSS after Tailwind in your app stylesheet:
 
 ```css
 @import "tailwindcss";
-@import "@ipior/custom-tailwind-shadcn-themes/styles.css";
+@import "@pior-labs/design-system/styles.css";
 ```
 
 Apps that want the shared effect helpers can opt in separately:
 
 ```css
-@import "@ipior/custom-tailwind-shadcn-themes/effects.css";
+@import "@pior-labs/design-system/effects.css";
 ```
 
 Wrap your React app with the provider:
 
 ```tsx
-import { ThemeProvider } from '@ipior/custom-tailwind-shadcn-themes';
+import { ThemeProvider } from '@pior-labs/design-system';
 
 export function App() {
   return (
@@ -73,7 +86,7 @@ export function App() {
 Use the theme hook when you need to render a theme picker:
 
 ```tsx
-import { useTheme } from '@ipior/custom-tailwind-shadcn-themes';
+import { useTheme } from '@pior-labs/design-system';
 
 export function ThemePicker() {
   const { theme, setTheme, themes } = useTheme();

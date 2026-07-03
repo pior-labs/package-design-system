@@ -17,7 +17,7 @@ import {
   WalletCards,
   X
 } from 'lucide-react';
-import { useTheme } from '@ipior/custom-tailwind-shadcn-themes';
+import { useTheme } from '@pior-labs/design-system';
 import { tokenGroups, tokens, type TokenDefinition, type TokenGroupId } from './generated/token-manifest';
 
 type TokenValueMap = Record<string, string>;
