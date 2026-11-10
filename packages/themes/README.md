@@ -15,7 +15,7 @@ consumer app:
 Install the package:
 
 ```sh
-pnpm add @pior-labs/design-system@^1.0.0
+pnpm add --save-exact @pior-labs/design-system@1.0.1
 ```
 
 ## Usage
