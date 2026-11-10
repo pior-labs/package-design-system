@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
         with:
@@ -26,18 +28,29 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
           registry-url: https://npm.pkg.github.com
           scope: '@pior-labs'
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Typecheck themes package
-        run: pnpm --filter @pior-labs/design-system typecheck
+      - name: Validate release tag
+        env:
+          RELEASE_REF_TYPE: ${{ github.ref_type }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          test "$RELEASE_REF_TYPE" = tag || { echo "Select a version tag to publish"; exit 1; }
+          version=$(node -p "require('./packages/themes/package.json').version")
+          test "$RELEASE_TAG" = "v$version" || { echo "Tag must match package version v$version"; exit 1; }
+          git fetch origin main
+          git merge-base --is-ancestor HEAD origin/main || { echo "Release must belong to main history"; exit 1; }
 
-      - name: Build themes package
-        run: pnpm --filter @pior-labs/design-system build
+      - name: Typecheck package and playground
+        run: pnpm typecheck
+
+      - name: Build package and playground
+        run: pnpm build
 
       - name: Publish to GitHub Packages
         run: pnpm --filter @pior-labs/design-system publish --no-git-checks

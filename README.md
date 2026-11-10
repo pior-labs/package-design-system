@@ -26,33 +26,37 @@ consumer app:
 Install the package from GitHub Packages:
 
 ```sh
-pnpm add @pior-labs/design-system@^1.0.0
+pnpm add --save-exact @pior-labs/design-system@1.0.1
 ```
 
-In `package.json` this resolves to a normal version range:
+In `package.json` this resolves to an exact version:
 
 ```jsonc
-"@pior-labs/design-system": "^1.0.0"
+"@pior-labs/design-system": "1.0.1"
 ```
 
-The package publishes from `packages/themes` via
-[`.github/workflows/publish-package.yml`](.github/workflows/publish-package.yml)
-when a `v*` tag is pushed or when the workflow is run manually. The package is
-published to GitHub Packages with the `@pior-labs/design-system` name.
+## Releases
 
-### Temporary pkg branch fallback
+GitHub Packages is the only supported distribution method. Consumers install
+explicit versions and commit their lockfiles; each application adopts and deploys
+updates independently. Publishing a package does not update running applications.
 
-The legacy `pkg` branch workflow remains in place while consumer apps are
-verified. Consumers that still need the branch fallback can install it with:
+1. Open a PR with the package changes and an appropriate version bump in
+   `packages/themes/package.json`. CI typechecks and builds the package and playground.
+2. After merge, push a matching `v<version>` tag on that main-branch commit.
+3. `publish-package.yml` validates the tag/version and main ancestry, checks both
+   workspaces, and publishes the package to GitHub Packages.
+4. Update each consumer with `pnpm add --save-exact @pior-labs/design-system@<version>`
+   from its frontend package directory, commit its manifest and lockfile, and run
+   that application's checks before deployment.
 
-```sh
-pnpm add github:pior-labs/package-design-system#pkg
-```
+Manual publication is available by selecting the existing version tag in the
+workflow dispatch UI. Branch dispatches are rejected. Fix a released package by
+publishing a new version rather than replacing an existing release.
 
-Because lockfiles pin the resolved commit, run
-`pnpm update @pior-labs/design-system` in a consumer to pull the latest branch
-fallback build. Do not use `#main` or a `#path:` fragment — `#main` resolves to
-the workspace root and the `#path:` syntax is not supported by pnpm.
+Use patch versions for compatible fixes, minor versions for compatible additions,
+and major versions for breaking changes to exports, React support, or styling
+contracts. Review visual changes in the playground and affected applications.
 
 ## Usage
 
@@ -113,7 +117,7 @@ pnpm build
 pnpm typecheck
 ```
 
-The root scripts target the published theme package. The private lab can be developed with:
+The root build and typecheck scripts check both the published package and playground. The private lab can be developed with:
 
 ```sh
 pnpm dev:theme-lab
