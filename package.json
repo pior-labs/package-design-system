@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "build": "pnpm --filter @pior-labs/design-system build && pnpm --filter @pior-labs/theme-lab build",
     "typecheck": "pnpm --filter @pior-labs/design-system typecheck && pnpm --filter @pior-labs/theme-lab typecheck",
