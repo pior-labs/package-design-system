@@ -15,13 +15,32 @@ Only `packages/themes` is intended to be consumed by other apps. The theme lab i
 
 ## Install from GitHub Packages
 
-Configure the GitHub Packages npm registry for the `@pior-labs` scope in the
-consumer app:
+Map the `@pior-labs` scope to GitHub Packages in the consumer app's committed
+`.npmrc`:
 
 ```ini
 @pior-labs:registry=https://npm.pkg.github.com
+```
+
+Keep the credential out of that file. Current pnpm releases do not expand
+environment variables in registry credentials from a project `.npmrc`, so the
+install fails with 401. Supply it from user-level configuration instead:
+
+- **Local development:** add the line below to your user-level `~/.npmrc` and
+  export a classic token with `read:packages` as `GITHUB_TOKEN`.
+- **CI:** write the same line to the runner's `~/.npmrc` before `pnpm install`,
+  with the workflow `GITHUB_TOKEN` in the environment. The repository must have
+  read access under this package's "Manage Actions access" settings.
+- **Docker builds:** write the line to a temporary file used as
+  `NPM_CONFIG_USERCONFIG` inside the install step, with the token from a build
+  secret, and delete it in the same step.
+
+```ini
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
+
+The variable stays literal in every case, so no token is written to disk.
+`template-webapp` shows the CI and Dockerfile pattern.
 
 Install the package from GitHub Packages:
 
