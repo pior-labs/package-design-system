@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": "26.x"
+  },
   "scripts": {
     "build": "pnpm --filter @pior-labs/design-system build && pnpm --filter @pior-labs/theme-lab build",
     "typecheck": "pnpm --filter @pior-labs/design-system typecheck && pnpm --filter @pior-labs/theme-lab typecheck",
