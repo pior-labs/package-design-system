@@ -130,6 +130,11 @@ Themes are applied with `data-theme` on the document root.
 
 ## Development
 
+Install the Node.js version in `.node-version` (fnm, mise, nodenv and asdf read it
+directly) and any pnpm release; pnpm switches itself to the version in
+`packageManager`. CI runs `scripts/check_versions.py`, which fails when workflows
+repeat either version.
+
 ```sh
 pnpm install
 pnpm build
