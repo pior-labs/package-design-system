@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 apps/theme-lab/dist
 packages/themes/dist
+__pycache__/
